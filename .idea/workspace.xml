@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e62e607b-8967-40d0-b066-bafefae095aa" name="Changes" comment="readme and tests complete" />
+    <list default="true" id="e62e607b-8967-40d0-b066-bafefae095aa" name="Changes" comment="readme and tests complete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/._README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/._data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/._src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/._tests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/data/._ut_austin_building_codes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/data/._ut_austin_campus_100plus.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/._AdjacencyListCampusGraph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/._CampusGraph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/._CampusGraphLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/._CampusNav.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/tests/._GraphSmokeTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/tests/._graph_cycle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/tests/._graph_disconnected.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,18 +35,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jasonkuchler-hub"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jasonkuchler-hub&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/jasonkuchler-hub/422-HW4.git",
-    "accountId": "730c4ed3-99fe-494b-987f-438730b8a740"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jasonkuchler-hub/422-HW4.git&quot;,
+    &quot;accountId&quot;: &quot;730c4ed3-99fe-494b-987f-438730b8a740&quot;
   }
-}]]></component>
+}</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0896986691879686" />
@@ -91,42 +106,43 @@
       <entry key="W1" value="215.35934391377342" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3LZ7eLFQY24nbf2ebnuZYoazojd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CampusNav.executor": "Run",
-    "Application.GraphSmokeTests.executor": "Run",
-    "Application.GraphTests.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/jason/IdeaProjects/Assignment4/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CampusNav.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GraphSmokeTests.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GraphTests.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/jason/IdeaProjects/Assignment4/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.CampusNav">
     <configuration name="CampusNav" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CampusNav" />
       <module name="Assignment4" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,6 +158,7 @@
     <configuration name="GraphTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphTests" />
       <module name="Assignment4" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,9 +170,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GraphSmokeTests" />
         <item itemvalue="Application.CampusNav" />
         <item itemvalue="Application.GraphTests" />
-        <item itemvalue="Application.GraphSmokeTests" />
       </list>
     </recent_temporary>
   </component>
