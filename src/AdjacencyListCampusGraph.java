@@ -4,12 +4,12 @@ import java.util.*;
 public class AdjacencyListCampusGraph implements CampusGraph {
 
     private final Map<String, Set<String>> adjacency = new HashMap<>();
+
     //checks if the buildings are valid
     private void validateBuildingName(String building) {
-        if(building == null){
+        if (building == null) {
             throw new IllegalArgumentException("building name is null");
-        }
-        else if (building.isBlank()){
+        } else if (building.isBlank()) {
             throw new IllegalArgumentException("building name is blank");
         }
     }
@@ -19,26 +19,45 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         visited.add(building);
         component.add(building);
         for (String neighbor : adjacency.get(building)) {
-            if(!visited.contains(neighbor)){
+            if (!visited.contains(neighbor)) {
                 dfsCollect(neighbor, visited, component);
             }
         }
     }
 
-    @Override public void addBuilding(String building) {
+    private int countComponentsExcluding(String excluded) {
+        Set<String> visited = new HashSet<>();
+        visited.add(excluded); // pre-marking it "visited" means DFS will never traverse into or out of it
+        int count = 0;
+        for (String building : adjacency.keySet()) {
+            if (!visited.contains(building)) {
+                Set<String> component = new HashSet<>();
+                dfsCollect(building, visited, component);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public void addBuilding(String building) {
         validateBuildingName(building);
         adjacency.computeIfAbsent(building, k -> new HashSet<>());
     }
 
-    @Override public void addConnection(String from, String to) {
+    @Override
+    public void addConnection(String from, String to) {
         validateBuildingName(from);
         validateBuildingName(to);
-        if (from.equals(to)){throw new IllegalArgumentException("buildings are equal");}
+        if (from.equals(to)) {
+            throw new IllegalArgumentException("buildings are equal");
+        }
         adjacency.computeIfAbsent(from, k -> new HashSet<>()).add(to);
         adjacency.computeIfAbsent(to, k -> new HashSet<>()).add(from);
     }
 
-    @Override public void removeConnection(String from, String to) {
+    @Override
+    public void removeConnection(String from, String to) {
         validateBuildingName(from);
         validateBuildingName(to);
         Set<String> fromNeighbors = adjacency.get(from);
@@ -51,11 +70,13 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         }
     }
 
-    @Override public Set<String> buildings() {
+    @Override
+    public Set<String> buildings() {
         return Set.copyOf(adjacency.keySet());
     }
 
-    @Override public List<String> shortestPath(String start, String end) {
+    @Override
+    public List<String> shortestPath(String start, String end) {
         if (!adjacency.containsKey(start) || !adjacency.containsKey(end)) {
             //check for unknown buildings
             return new ArrayList<>();
@@ -100,8 +121,11 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         return path;
     }
 
-    @Override public List<String> shortestPathAvoiding(String start, String end, Set<String> closedBuildings) {
-        if (closedBuildings == null) { throw new IllegalArgumentException("closedBuildings is null"); }
+    @Override
+    public List<String> shortestPathAvoiding(String start, String end, Set<String> closedBuildings) {
+        if (closedBuildings == null) {
+            throw new IllegalArgumentException("closedBuildings is null");
+        }
         if (closedBuildings.contains(start) || closedBuildings.contains(end)) {
             return new ArrayList<>();
         }
@@ -147,10 +171,11 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         return path;
     }
 
-    @Override public List<Set<String>> connectedComponents() {
+    @Override
+    public List<Set<String>> connectedComponents() {
         List<Set<String>> components = new ArrayList<>();
         Set<String> visited = new HashSet<>();
-        for(String building : adjacency.keySet()) {
+        for (String building : adjacency.keySet()) {
             if (!visited.contains(building)) {
                 Set<String> component = new HashSet<>();
                 dfsCollect(building, visited, component);
@@ -159,5 +184,17 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         }
         return components;
     }
-    @Override public Set<String> criticalBuildings() { throw new UnsupportedOperationException("TODO"); }
+
+    @Override
+    public Set<String> criticalBuildings() {
+        int baseline = connectedComponents().size();
+        Set<String> critical = new HashSet<>();
+        for (String candidate : adjacency.keySet()) {
+            int withoutCandidate = countComponentsExcluding(candidate);
+            if (withoutCandidate > baseline) {
+                critical.add(candidate);
+            }
+        }
+        return critical;
+    }
 }
