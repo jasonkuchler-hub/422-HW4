@@ -4,12 +4,24 @@ import java.util.*;
 public class AdjacencyListCampusGraph implements CampusGraph {
 
     private final Map<String, Set<String>> adjacency = new HashMap<>();
+    //checks if the buildings are valid
     private void validateBuildingName(String building) {
         if(building == null){
             throw new IllegalArgumentException("building name is null");
         }
         else if (building.isBlank()){
             throw new IllegalArgumentException("building name is blank");
+        }
+    }
+
+    //given a starting building, returns every reachable building into a Set
+    private void dfsCollect(String building, Set<String> visited, Set<String> component) {
+        visited.add(building);
+        component.add(building);
+        for (String neighbor : adjacency.get(building)) {
+            if(!visited.contains(neighbor)){
+                dfsCollect(neighbor, visited, component);
+            }
         }
     }
 
@@ -87,6 +99,7 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         Collections.reverse(path);
         return path;
     }
+
     @Override public List<String> shortestPathAvoiding(String start, String end, Set<String> closedBuildings) {
         if (closedBuildings == null) { throw new IllegalArgumentException("closedBuildings is null"); }
         if (closedBuildings.contains(start) || closedBuildings.contains(end)) {
@@ -133,6 +146,18 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         Collections.reverse(path);
         return path;
     }
-    @Override public List<Set<String>> connectedComponents() { throw new UnsupportedOperationException("TODO"); }
+
+    @Override public List<Set<String>> connectedComponents() {
+        List<Set<String>> components = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
+        for(String building : adjacency.keySet()) {
+            if (!visited.contains(building)) {
+                Set<String> component = new HashSet<>();
+                dfsCollect(building, visited, component);
+                components.add(component);
+            }
+        }
+        return components;
+    }
     @Override public Set<String> criticalBuildings() { throw new UnsupportedOperationException("TODO"); }
 }
