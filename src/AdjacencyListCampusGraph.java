@@ -87,7 +87,52 @@ public class AdjacencyListCampusGraph implements CampusGraph {
         Collections.reverse(path);
         return path;
     }
-    @Override public List<String> shortestPathAvoiding(String start, String end, Set<String> closedBuildings) { throw new UnsupportedOperationException("TODO"); }
+    @Override public List<String> shortestPathAvoiding(String start, String end, Set<String> closedBuildings) {
+        if (closedBuildings == null) { throw new IllegalArgumentException("closedBuildings is null"); }
+        if (closedBuildings.contains(start) || closedBuildings.contains(end)) {
+            return new ArrayList<>();
+        }
+        if (!adjacency.containsKey(start) || !adjacency.containsKey(end)) {
+            return new ArrayList<>();
+        }
+        if (start.equals(end)) {
+            return new ArrayList<>(List.of(start));
+        }
+
+        Set<String> visited = new HashSet<>();
+        Map<String, String> predecessor = new HashMap<>();
+        Queue<String> queue = new LinkedList<>();
+
+        visited.add(start);
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            String current = queue.poll();
+            if (current.equals(end)) {
+                break;
+            }
+            for (String neighbor : adjacency.get(current)) {
+                if (!visited.contains(neighbor) && !closedBuildings.contains(neighbor)) {
+                    visited.add(neighbor);
+                    predecessor.put(neighbor, current);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        if (!visited.contains(end)) {
+            return new ArrayList<>();
+        }
+
+        List<String> path = new ArrayList<>();
+        String cur = end;
+        while (cur != null) {
+            path.add(cur);
+            cur = predecessor.get(cur);
+        }
+        Collections.reverse(path);
+        return path;
+    }
     @Override public List<Set<String>> connectedComponents() { throw new UnsupportedOperationException("TODO"); }
     @Override public Set<String> criticalBuildings() { throw new UnsupportedOperationException("TODO"); }
 }
